@@ -67,4 +67,13 @@ library.checkOut("9799660001231");
 console.log(library.findByAuthor("Nazar Skaletskyi").map(String)); // [book1]
 console.log(library.findByAuthor("Nobody"));                       // []
 console.log(library.getAvailable().map(String));                   // тільки book2
+                            // ===== Тести fromArray =====
+console.log("--- FromArray ---");
+const data = [
+    { name: "MidnightCode", author: "Oleh Bondar", year: 2015, ISBN: "9781234567897" },
+    { name: "SilentRiver", author: "Iryna Koval", year: 2009, ISBN: "9780987654321" },
+    { name: "StarDust", author: "Oleh Bondar", year: 2021, ISBN: "9785556667778" },
+];
+const lib = Library.fromArray(data)
 
+console.log(lib.getAvailable().map(String));

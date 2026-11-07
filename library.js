@@ -31,6 +31,16 @@ class Library  {
      return Array.from(this.#books.values()).filter(book=> book.isAvailable === true)
     }
 
+    static fromArray(arr){
+        const library = new Library();
+     for (const obj of arr){
+        const b = new Book(obj.name, obj.author, obj.year,obj.ISBN)
+         library.addBook(b);
+     }
+        return library
+    }
+
+
  }
 
  export default Library;
