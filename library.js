@@ -1,4 +1,5 @@
  import Book from "./book.js"
+ import book from "./book.js";
 
 class Library  {
  #books = new Map()
@@ -23,6 +24,13 @@ class Library  {
             throw new Error("Book doesnt exist")}
         this.#books.get(isbn).returnBook()
     }
+    findByAuthor(author) {
+        return Array.from(this.#books.values()).filter(book => book.author === author);
+    }
+    getAvailable(){
+     return Array.from(this.#books.values()).filter(book=> book.isAvailable === true)
+    }
+
  }
 
  export default Library;

@@ -39,6 +39,7 @@ console.log(`${book1}`);
 library.returnBook("9799660001231");
 console.log(`${book1}`);
 
+
 try {
     library.addBook(book1);
 } catch (error) {
@@ -57,3 +58,13 @@ try {
 } catch (error) {
     console.log(error.message);
 }
+
+// ===== Тести пошуку =====
+console.log("--- Search ---");
+library.addBook(book2);
+library.checkOut("9799660001231");
+
+console.log(library.findByAuthor("Nazar Skaletskyi").map(String)); // [book1]
+console.log(library.findByAuthor("Nobody"));                       // []
+console.log(library.getAvailable().map(String));                   // тільки book2
+
